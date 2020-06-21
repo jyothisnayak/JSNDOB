@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 // *** start ***
 // On first load, show home view
 showLoading("#main-content");
-$ ajaxUtils.sendGetRequest(
+$ajaxUtils.sendGetRequest(
   allCategoriesUrl,
   buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
   true); // Explicitly setting the flag to get JSON from server processed into an object literal
@@ -155,7 +155,7 @@ buildAndShowCategoriesHTML,
 // Load the menu categories view
 dc.loadMenuCategories = function () {
   showLoading("#main-content");
-  $ ajaxUtils.sendGetRequest(
+  $ajaxUtils.sendGetRequest(
     allCategoriesUrl,
     buildAndShowCategoriesHTML);
 };
