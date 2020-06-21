@@ -103,15 +103,17 @@ function buildAndShowHomeHTML (categories) {
     homeHtmlUrl,
     function (homeHtml) {
         switchMenuToActive();
-        var chooseRandomCategory=chooseRandomCategory(categories);
+        var chooseRandomCategory=chooseRandomCategory(categories).short_name;
        // console.log(chooseRandomCategory);
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
       // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
       // variable's name implies it expects.
-      var short_name =chooseRandomCategory.short_name;
+      chosenCategoryShortName = "'" + chosenCategoryShortName + "'";
+      var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, "randomCategoryShortName", chosenCategoryShortName);
+      /var short_name =chooseRandomCategory.short_name;
 
 
-      var chosenCategoryShortName =insertProperty(chosenCategoryShortName,"short_name",short_name);
+      //var chosenCategoryShortName =insertProperty(chosenCategoryShortName,"short_name",short_name);
     
         //  insertHtml("#main-content", categoriesViewHtml);
         //var chooseRandomCategory();
@@ -143,8 +145,8 @@ function buildAndShowHomeHTML (categories) {
          // insertHtml("#main-content", categoriesViewHtml);
        // },
       //
-     var homeHtmlToInsertIntoMainPage =buildAndShowCategoriesHTML(chosenCategoryShortName,categoriesTitleHtml,
-                                    categoryHtml);
+     //var homeHtmlToInsertIntoMainPage =buildAndShowCategoriesHTML(chosenCategoryShortName,categoriesTitleHtml,
+                                    //categoryHtml);
        
       insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
