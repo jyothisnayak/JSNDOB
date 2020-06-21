@@ -96,7 +96,7 @@ function buildAndShowHomeHTML (categories) {
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
-        switchMenuToActive();
+        //switchMenuToActive();
         var chosenCategoryShortName=chooseRandomCategory(categories).short_name;
        // console.log(chooseRandomCategory);
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
@@ -178,7 +178,7 @@ dc.loadMenuCategories = function () {
 dc.loadMenuItems = function (categoryShort) {
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
-    menuItemsUrl + chosenCategoryShortName,
+    menuItemsUrl + categoryShort,
     buildAndShowMenuItemsHTML);
 };
 
