@@ -105,7 +105,7 @@ function buildAndShowHomeHTML (categories) {
 
       var chosenCategoryShortName =insertProperty(chosenCategoryShortName,"short_name",short_name);
     
-          insertHtml("#main-content", categoriesViewHtml);
+        //  insertHtml("#main-content", categoriesViewHtml);
         //var chooseRandomCategory();
        //chooseRandomCategory(categories);
         //var short_name=chooseRandomCategory.short_name;
