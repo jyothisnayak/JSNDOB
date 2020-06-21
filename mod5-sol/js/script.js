@@ -104,7 +104,7 @@ function buildAndShowHomeHTML (categories) {
     function (homeHtml) {
         switchMenuToActive();
         var chooseRandomCategory=chooseRandomCategory(categories);
-        console.log(chooseRandomCategory);
+       // console.log(chooseRandomCategory);
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
       // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
       // variable's name implies it expects.
@@ -133,16 +133,26 @@ function buildAndShowHomeHTML (categories) {
       //$dc.loadMenuItems(chosenCategoryShortName);
       // Hint: you need to surround the chosen category short name with something before inserting
       // it into the home html snippet.
+      //$ajaxUtils.sendGetRequest(
+        //categoryHtml,
+        //function (categoryHtml) {
+        //  var categoriesViewHtml =
+          //  buildCategoriesViewHtml(categories,
+           //                         categoriesTitleHtml,
+           //                         categoryHtml);
+         // insertHtml("#main-content", categoriesViewHtml);
+       // },
       //
-     var homeHtmlToInsertIntoMainPage =buildAndShowCategoriesHTML(chosenCategoryShortName);
+     var homeHtmlToInsertIntoMainPage =buildAndShowCategoriesHTML(chosenCategoryShortName,categoriesTitleHtml,
+                                    categoryHtml);
        
-      //insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
+      insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
       // Use the existing insertHtml function for that purpose. Look through this code for an example
       // of how to do that.
       // ....
       },
-buildAndShowCategoriesHTML,
+
     
     false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
 }
@@ -163,7 +173,7 @@ dc.loadMenuCategories = function () {
 
 // Load the menu items view
 // 'categoryShort' is a short_name for a category
-dc.loadMenuItems = function (chosenCategoryShortName) {
+dc.loadMenuItems = function (CategoryShortName) {
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
     menuItemsUrl + chosenCategoryShortName,
